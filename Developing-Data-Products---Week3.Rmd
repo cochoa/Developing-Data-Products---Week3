@@ -18,7 +18,6 @@ We use a dataset with geolaction of the main cities in Spain, as well as data re
 cities <- read.csv("CitiesGeoloc.csv", sep=";", encoding = "UTF-8")
 names(cities) <- c("region","province","city","lat","lng","altitude","population","males","females")
 str(cities)
-cities<-cities[cities$population>10000,]
 
 ```
 
