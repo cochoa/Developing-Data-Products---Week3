@@ -1,0 +1,36 @@
+---
+title: "Data Products"
+subtitle: "Week3"
+author: "Carlos Ochoa"
+date: "20th of June 2019"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Data
+
+We use a dataset with geolaction of the main cities in Spain, as well as data regarding male and female population, region and province.
+
+```{r data, echo=FALSE, cache=TRUE}
+cities <- read.csv("CitiesGeoloc.csv", sep=";", encoding = "UTF-8")
+names(cities) <- c("region","province","city","lat","lng","altitude","population","males","females")
+str(cities)
+cities<-cities[cities$population>10000,]
+
+```
+
+## Plot.ly example
+
+```{r plotly, warning=FALSE, echo=FALSE, comment="", message=FALSE}
+suppressMessages(library(plotly))
+plot_ly(data=cities, x=~altitude, y=~population, color=~region,  type="scatter")
+
+```
+
+## Thank you
+
+###Carlos Ochoa
+###20th June of 2019
